@@ -3,14 +3,20 @@ The menu file for the Game compendium project
 '''
 
 #### IMPORTS ####
+# TK # USED FOR GUI
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
+##
+import games.carracer as cargame# imports the car racer game
+import games.highorlow as hlgame# imports the higher or lower game
 #################
 
 #### Functions ####
-def rungame():
-    print("GAME BEING RUN")
+
+
+#### Data ####
+
 
 #### MAIN PROGRAM ####
 
@@ -23,10 +29,10 @@ title.grid(row=0, column=0, padx=20, pady=30, sticky=NSEW) # places the title in
 games_frame = LabelFrame(root, text="Games") # creates an onscreen box to clean up the GUI contains the run buttons for games
 games_frame.grid(row=1, column=0, padx=50, pady=30) # places this on screen at grid location (1,0)
 
-cargame_button = Button(games_frame, text="Car Racer Game", command=rungame) # first game button, starts car racer
+cargame_button = Button(games_frame, text="Car Racer Game", command=cargame.run) # first game button, starts car racer
 cargame_button.grid(row=0, column=0, padx=10, pady=20, sticky=NSEW)
 
-highlow_button = Button(games_frame, text="Higher or Lower Game", command=rungame) # first game button, starts car racer
+highlow_button = Button(games_frame, text="Higher or Lower Game", command=hlgame.run) # first game button, starts car racer
 highlow_button.grid(row=1, column=0, padx=10, pady=20, sticky=NSEW)
 
 quit_button = Button(root, text="QUIT", command=quit)
