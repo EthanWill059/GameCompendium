@@ -3,10 +3,6 @@ The menu file for the Game compendium project
 '''
 
 #### IMPORTS ####
-# TK # USED FOR GUI
-import tkinter as tk
-from tkinter import *
-from tkinter import ttk
 ##
 import games.carracer as cargame# imports the car racer game
 import games.highorlow as hlgame# imports the higher or lower game
@@ -15,27 +11,35 @@ import games.highorlow as hlgame# imports the higher or lower game
 #### Functions ####
 
 
-#### Data ####
-
+#### Varibles ####
+flag = False # used for exiting a while loop without break
 
 #### MAIN PROGRAM ####
 
-root = tk.Tk(); print("Window Started") # defines the window itself, root is the parent window and prints a notification to notate this event
-root.title("Game Compendium") # sets the title shown in the top bar
+print("""
+Welcome to the Game Compendium
 
-title = Label(root, text="Game Compendium") # Creates the actual title in the menu
-title.grid(row=0, column=0, padx=20, pady=30, sticky=NSEW) # places the title in the grid location (0,0)
+Please type a number to choose a game
 
-games_frame = LabelFrame(root, text="Games") # creates an onscreen box to clean up the GUI contains the run buttons for games
-games_frame.grid(row=1, column=0, padx=50, pady=30) # places this on screen at grid location (1,0)
+1) Car Racer Game
 
-cargame_button = Button(games_frame, text="Car Racer Game", command=cargame.run) # first game button, starts car racer
-cargame_button.grid(row=0, column=0, padx=10, pady=20, sticky=NSEW)
+2) Higher or Lower Game
 
-highlow_button = Button(games_frame, text="Higher or Lower Game", command=hlgame.run) # first game button, starts car racer
-highlow_button.grid(row=1, column=0, padx=10, pady=20, sticky=NSEW)
+""") # prints menu message
 
-quit_button = Button(root, text="QUIT", command=quit)
-quit_button.grid(row=3, column=0, padx=10, pady=20, sticky=EW)
+while flag == False: # loop until flag is raised
+    try: # error catching try block
+        user_input = int(input("Make a Selection << -1 to quit >> ")) # input a number, int
 
-root.mainloop()## Runs a loop for the window 
+        if user_input == 1: # if the input is equal to 1
+            pass
+        elif user_input == 2: # if the input is equal to 2
+            hlgame.run() # runs the higher or lower game
+        elif user_input == -1: # if the input is equal to -1
+            flag = True # raises flag
+        else: # any thing else
+            print("Invalid Input, Please enter a Number in range")
+    except ValueError: # catching invalid inputs
+        print("Invalid Input, Please Enter a Number")
+
+print("Thank You and Goodbye!")
