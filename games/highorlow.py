@@ -11,8 +11,6 @@ flag = False
 rounds_to_play = 0
 welcomeplayed = False
 ###################
-
-
 #### Functions ####
 def round():
     print("\n!! NEW ROUND !!")

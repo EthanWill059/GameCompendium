@@ -13,27 +13,32 @@ import games.highorlow as hlgame# imports the higher or lower game
 
 #### Varibles ####
 flag = False # used for exiting a while loop without break
+welcomeplayed = False
 
 #### MAIN PROGRAM ####
 
-print("""
-Welcome to the Game Compendium
-
-Please type a number to choose a game
-
-1) Car Racer Game
-
-2) Higher or Lower Game
-
-""") # prints menu message
-
 while flag == False: # loop until flag is raised
     try: # error catching try block
+        if welcomeplayed == False: # stops the welcome message from playing over and over again
+            print("""
+    Welcome to the Game Compendium
+
+    Please type a number to choose a game
+
+    1) Car Racer Game
+
+    2) Higher or Lower Game
+
+        """)
+        welcomeplayed = True
+
         user_input = int(input("Make a Selection << -1 to quit >> ")) # input a number, int
 
         if user_input == 1: # if the input is equal to 1
-            pass
+            welcomeplayed = False # play the welcome message when user returns
+            cargame.run()
         elif user_input == 2: # if the input is equal to 2
+            welcomeplayed = False # plays welcome message on user return
             hlgame.run() # runs the higher or lower game
         elif user_input == -1: # if the input is equal to -1
             flag = True # raises flag
