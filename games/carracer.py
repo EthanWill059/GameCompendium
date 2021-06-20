@@ -46,7 +46,7 @@ def run(): # run method for loading the game
     global racedistance
 
     ### Varibles ###
-    racers = {"car1": 0, "car2": 0, "car3": 0, "car4": 0, "car5": 0, "car6": 0} # dictionary to remeber who is who
+    racers = {"car1": [], "car2": [], "car3": [], "car4": [], "car5": [], "car6": []} # dictionary to remeber who is who
 
     #####################
 

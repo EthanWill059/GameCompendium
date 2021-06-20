@@ -7,7 +7,7 @@ from random import randint # random number generator
 #################
 
 #### Variables ####
-flag = False
+global flag; flag = False
 rounds_to_play = 0
 welcomeplayed = False
 ###################
@@ -37,12 +37,16 @@ def round():
                 print("Enter a valid number!") # error message displayed
         
         if user_guess == -1:
+            flag = True
             return
+
         elif user_guess == target_num: # if the user guessed right
             print("Good Job. You got it in {} guesses".format(START_GUESSES - guesses_left))
             break # exits loop early
+
         elif user_guess > target_num: # higher or lower
             print("Go Lower! {} Guesses Left".format(guesses_left))
+
         else: # higher or lower
             print("Go Higher! {} Guesses Left".format(guesses_left))
 
@@ -78,24 +82,25 @@ def run(): # run method for loading the game
         
 
     flag = False # make sure flag is lowered for input loop
-    while flag == False: # the loop for asking multipul times after invalid inputs, flag is what I use to exit rather than break
-        try:# try to execute this
+    while flag == False:
+        try:# execute below
             rounds_to_play = int(input("How many rounds would you like to play? <<enter 0 for endless>> ")) # ask for an interger input of how many rounds to be played
             if rounds_to_play < -1: # check the number is in range
                 raise ValueError # if it isnt raise an error to be caught by the except block
-            else: # only get to here if the input is good
-                flag = True # exit loop with flag
+            else: 
+                flag = True 
         except ValueError: # catch value errors, raised or unforseen
-            print("Enter a valid number!") # error message displayed
+            print("Enter a valid number!") # error message
     
+    flag = False
     if rounds_to_play == -1: # checking for the quit input
         return # exit function
     elif rounds_to_play == 0: # checks if user wants endless games
-        while True: # "endless" loop
-            rounds_to_play -= 1 # ticking off rounds
+        while flag == False: # "endless" loop
             round() # round function, line 15
     else: # uses input amount of rounds
-        while rounds_to_play > 0: # checks if desired round has been reached yet
+        flag = False
+        while rounds_to_play > 0 and flag == False: # checks if desired round has been reached yet
             rounds_to_play -= 1 # ticking off rounds
             round() # round function, line 15
 
