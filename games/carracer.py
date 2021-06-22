@@ -67,6 +67,8 @@ def run(): # run method for loading the game
 
         for i in range(1,7): # loop to let  people enter their name to a car
             racers["car{}".format(i)].append(input("Racer for car #{} <<Leave Blank for no racer >> ".format(i))) # enter the name
+        for i in range(1,7): # fill cars that were left blank
+            racers["car{}".format(i)].append("Computer")
 
         flag = False
         while flag == False:
