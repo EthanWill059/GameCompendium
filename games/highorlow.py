@@ -30,7 +30,7 @@ def round():
             try:# try to execute this
                 user_guess = int(input("Take a guess >> ")) # asks the user to guess # ask for an interger input of how many rounds to be played
 
-                if user_guess < -1 or user_guess > 100: # check the number is in range
+                if user_guess < -1 or user_guess > 100 or user_guess == 0: # check the number is in range
                     raise ValueError # if it isnt raise an error to be caught by the except block
                 else: # only get to here if the input is good
                     flag = True # exit loop with flag
@@ -55,7 +55,7 @@ def round():
     print("The number was {}".format(target_num))
 
 #### Methods ####
-def run(): # run method for loading the game
+def rungame(): # run method for loading the game
     ### Globals ###
     global welcomeplayed
     global flag
@@ -83,7 +83,7 @@ def run(): # run method for loading the game
         welcomeplayed = True
         
 
-    
+    flag = False
     while flag == False:
         try:# execute below
             rounds_to_play = int(input("How many rounds would you like to play? <<enter 0 for endless>> ")) # ask for an interger input of how many rounds to be played
@@ -120,7 +120,7 @@ def run(): # run method for loading the game
             print("Enter a valid number!") # error message displayed
     
     if playagain == 1:
-        run()
+        rungame()
     else:
         return
 
