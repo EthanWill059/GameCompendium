@@ -53,6 +53,7 @@ def rungame(): # run method for loading the game
 
     # main #
 
+
     if welcomeplayed == False: # stops the welcome message from playing over and over again
         print("""
         Welcome to Car Racer!

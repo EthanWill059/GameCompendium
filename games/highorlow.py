@@ -6,6 +6,7 @@ Higher or Lower guessing game
 from random import randint # random number generator
 #################
 
+
 #### Variables ####
 flag = False
 flag2 = False
