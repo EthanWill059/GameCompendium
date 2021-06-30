@@ -1,13 +1,6 @@
 # Game Compendium
 Game Compendium repo for the Major Coding project we are doing for  CSC 2021
 
-Version History:
-
-v0.1.0 - where the GUI met it's maker
-v1.0.0 - The current release
-v2.0.0 - The Current testing version
-v3.0.0 - New Development Version
-
 Folders:
 - Games - this houses the .py files that run the games
 Files
