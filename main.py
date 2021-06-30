@@ -2,6 +2,7 @@
 The menu file for the Game compendium project
 '''
 
+
 #### IMPORTS ####
 ##
 import games.carracer as cargame# imports the car racer game
@@ -34,15 +35,15 @@ while flag == False: # loop until flag is raised
 
         user_input = int(input("Make a Selection << -1 to quit >> ")) # input a number, int
 
-        if user_input == 1: # if the input is equal to 1
+        if user_input == 1: 
             welcomeplayed = False # play the welcome message when user returns
-            cargame.run()
-        elif user_input == 2: # if the input is equal to 2
+            cargame.rungame()
+        elif user_input == 2:
             welcomeplayed = False # plays welcome message on user return
-            hlgame.run() # runs the higher or lower game
-        elif user_input == -1: # if the input is equal to -1
+            hlgame.rungame() # runs the higher or lower game
+        elif user_input == -1: 
             flag = True # raises flag
-        else: # any thing else
+        else: 
             print("Invalid Input, Please enter a Number in range")
     except ValueError: # catching invalid inputs
         print("Invalid Input, Please Enter a Number")
